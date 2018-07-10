@@ -1,0 +1,7 @@
+# Remove index.php and ? from the request but mantain the query string
+# https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html#rewritecond
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
