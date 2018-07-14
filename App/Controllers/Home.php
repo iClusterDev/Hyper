@@ -25,12 +25,11 @@
     }
 
     public function indexAction() {
-      // echo 'Hello from Home Index';
       View::render('Home/index.php');
     }
 
     public function aboutAction() {
-      echo 'This is all about MVC';
+      View::render('Home/about.php');
     }
 
   }
