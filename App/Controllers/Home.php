@@ -25,11 +25,11 @@
     }
 
     public function indexAction() {
-      View::render('Home/index.php');
+      View::render('Home/index.html');
     }
 
     public function aboutAction() {
-      View::render('Home/about.php');
+      View::render('Home/about.html');
     }
 
   }

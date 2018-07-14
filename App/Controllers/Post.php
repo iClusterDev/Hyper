@@ -1,18 +1,20 @@
 <?php
   /**
-   * Home Controller
+   * Posts Controller
    * 
    * PHP Version 7.2.5
    */
 
 
-  namespace App\Controllers\User;
+  namespace App\Controllers;
 
 
   use \Core\Controller;
+  use \Core\View;
+  use App\Models\Posts;
 
 
-  class Admin extends Controller {
+  class Post extends Controller {
 
     protected function before() {
       // do something before
@@ -24,7 +26,10 @@
     }
 
     public function indexAction() {
-      echo 'Hello from Admin Index';
+      $posts = Posts::getAll();
+      View::render('Post/index.html', [
+        'posts' => $posts
+      ]);
     }
 
   }

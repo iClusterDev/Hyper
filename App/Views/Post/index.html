@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block body %}
+  <h1>Posts</h1>
+  <p>These are all the posts:</p>
+  <ul>
+    {% for post in posts %}
+      <li>
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.content }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
