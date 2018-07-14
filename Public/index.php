@@ -10,7 +10,7 @@
   /**
    * Autoloader
    */
-  $root = str_replace('\\', '/', dirname(__DIR__));  
+  $root = str_replace('\\', '/', dirname(__DIR__)); 
   require_once $root . '/Vendor/autoload.php';
 
 
@@ -29,10 +29,10 @@
   // $router->use('{controller}/{action}', ['namespace' => 'App\Controllers\User']);
 
   // Display the routing table
-  echo '<pre>';
-  echo htmlspecialchars(print_r($router->getRoutes(), true));
-  echo '</pre>';
-  echo '<hr>';
+  // echo '<pre>';
+  // echo htmlspecialchars(print_r($router->getRoutes(), true));
+  // echo '</pre>';
+  // echo '<hr>';
 
 
   /**

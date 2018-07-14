@@ -10,6 +10,7 @@
 
 
   use \Core\Controller;
+  use \Core\View;
 
 
   class Home extends Controller {
@@ -24,7 +25,8 @@
     }
 
     public function indexAction() {
-      echo 'Hello from Home Index';
+      // echo 'Hello from Home Index';
+      View::render('Home/index.php');
     }
 
     public function aboutAction() {

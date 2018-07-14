@@ -15,12 +15,12 @@
   class Admin extends Controller {
 
     protected function before() {
-      echo 'before() ';
+      // do something before
       return true;
     }
 
     protected function after() {
-      echo ' after()';
+      // do something before
     }
 
     public function indexAction() {
