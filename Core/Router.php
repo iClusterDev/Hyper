@@ -104,22 +104,21 @@
         $controller = $this->toStudlyCase($this->params['controller']);
         $controller = $this->getNamespace() . $controller;
         if (class_exists($controller)) {
-        $controllerObj = new $controller($this->params);
+          $controllerObj = new $controller($this->params);
           $action = $this->toCamelCase($this->params['action']);
           if (preg_match('/Action$/i', $action) == 0) {
             $controllerObj->$action();
           }
           else {
-            // throw non callable method
-            echo 'cannot be called directly';
+            throw new \Exception('Error from: ' . get_class($this) . ' method dispatch() - Cannot call method class directly, remove "Action"');
           }
         }
         else {
-          // throw class not found
+          throw new \Exception('Error from: ' . get_class($this) . ' method dispatch() - Class not found');
         }
       }
       else {
-        // throw url not found
+        throw new \Exception('Error from: ' . get_class($this) . ' method dispatch() - URL not found');
       }
     }
 

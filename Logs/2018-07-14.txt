@@ -1,0 +1,54 @@
+[14-Jul-2018 18:58:30 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('post/index/anim...')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 122
+
+[14-Jul-2018 18:58:31 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 122
+
+[14-Jul-2018 19:02:03 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('post/index/anim...')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 123
+
+[14-Jul-2018 19:02:03 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 123
+
+[14-Jul-2018 19:03:12 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('post/index/anim...')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 122
+
+[14-Jul-2018 19:03:13 Europe/Berlin] 
+
+Uncaught Exception:Exception
+Message: Error from: Core\Router method dispatch() - URL not found
+Stack Trace: #0 C:\xampp\htdocs\projects\hyper\Public\index.php(46): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in C:\xampp\htdocs\projects\hyper\Core\Router.php
+Line 122
+

@@ -16,6 +16,7 @@
    /**
     * Model (base) class
     * every model inherits from base Model
+    * @var Model
     */
    abstract class Model {
 

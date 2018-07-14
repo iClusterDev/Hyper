@@ -14,7 +14,7 @@
    * Every controller inherits from base controller
    * The base controller is for storing the route parameters into $this->getParams
    * The route parameters are passed in when a new controller is created
-   * @param Controller
+   * @var Controller
    */
   abstract class Controller {
   

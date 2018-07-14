@@ -11,7 +11,8 @@
 
   /**
    * View class
-   * uses the twig template engine 
+   * uses the twig template engine
+   * @var View
    */
    class View {
 
@@ -26,7 +27,6 @@
       static $twig = null;
 
       if ($twig === null) {
-
         $loader = new \Twig_Loader_Filesystem(str_replace('\\', '/', dirname(__DIR__)) . '/App/Views');
         $twig = new \Twig_Environment($loader);
       }
