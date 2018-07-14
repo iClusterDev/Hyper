@@ -97,17 +97,21 @@
      * @return void
      */
     public function dispatch($url) {
+
+      $url = $this->removeQueryString($url);
+
       if ($this->match($url)) {
         $controller = $this->toStudlyCase($this->params['controller']);
         $controller = $this->getNamespace() . $controller;
         if (class_exists($controller)) {
         $controllerObj = new $controller($this->params);
           $action = $this->toCamelCase($this->params['action']);
-          if (is_callable([$controllerObj, $action])) {
+          if (preg_match('/Action$/i', $action) == 0) {
             $controllerObj->$action();
           }
           else {
             // throw non callable method
+            echo 'cannot be called directly';
           }
         }
         else {
@@ -154,6 +158,25 @@
         $namespace .= $this->params['namespace'] . '\\';
       }
       return $namespace;
+    }
+
+
+    /**
+     * Removes the query string from URL
+     * @param string $url: the URL
+     * @return string $url: the URL without query string
+     */
+    private function removeQueryString($url) {
+      if ($url !== '') {
+        $parts = explode('&', $url, 2);
+        if (strpos($parts[0], '=') === false) {
+          $url = $parts[0];
+        }
+        else {
+          $url = '';
+        }
+      }
+      return $url;
     }
 
   }
