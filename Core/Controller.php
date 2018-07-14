@@ -19,20 +19,44 @@
   abstract class Controller {
   
 
+    /**
+     * Controller parameters
+     * Holds the route parameters passed to the controller
+     * through its constructor
+     * @var array $params: the contrller parameters
+     */
     protected $params = array();
 
 
-    protected abstract function before();    
+    /**
+     * action filter
+     * this executes before the actual action call
+     */
+    protected abstract function before();
 
-
+    /**
+     * action filter
+     * this executes after the actual action call
+     */
     protected abstract function after();
 
 
+    /**
+     * Constructor
+     * @param array $routeParams: the current route parameters
+     * @return void
+     */
     public function __construct($routeParams) {
       $this->params = $routeParams;
     }
 
 
+    /**
+     * Magic method __call
+     * this allows to execute the action filters for every controller action
+     * @param string $name: the action name to cal
+     * @param array $args: action parameters
+     */
     public function __call($name, $args) {
       if ($this->before()) {
         $action = $name . 'Action';

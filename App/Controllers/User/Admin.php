@@ -6,29 +6,25 @@
    */
 
 
-  namespace App\Controllers;
+  namespace App\Controllers\User;
 
 
   use \Core\Controller;
 
 
-  class Home extends Controller {
+  class Admin extends Controller {
 
     protected function before() {
-      // do something before
+      echo 'before() ';
       return true;
     }
 
     protected function after() {
-      // do something before
+      echo ' after()';
     }
 
     public function indexAction() {
-      echo 'Hello from Home Index';
-    }
-
-    public function aboutAction() {
-      echo 'This is all about MVC';
+      echo 'Hello from Admin Index';
     }
 
   }

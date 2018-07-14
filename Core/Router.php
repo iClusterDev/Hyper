@@ -18,6 +18,7 @@
    */
   class Router {
 
+
     /**
      * Routing table
      * @var array $routes: associative array containing the framework routes
@@ -29,9 +30,7 @@
      * Route parameters
      * @var array $params: associative array containing the route parameters
      */
-    private $params = array(
-      'action' => 'index'
-    );
+    private $params = array();
 
 
     /**
@@ -61,7 +60,7 @@
      */
     public function use($route, $params = []) {
       $route = preg_replace('/\//', '\\/', $route);
-      $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-_]+)', $route);
+      $route = preg_replace('/\{([a-z]+)\}/', '(?P<\1>[a-z-]+)', $route);
       $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
       $route = '/^' . $route . '$/i';
       $this->routes[$route] = $params;
@@ -76,19 +75,14 @@
      * @return boolean true if there's a match, false otherwise
      */
     private function match($url) {
-      $this->params['controller'] = $url;
       foreach($this->routes as $route => $params) {
         if (preg_match($route, $url, $matches)) {
           foreach($matches as $key => $match) {
             if (is_string($key)) {
-              // $params[$key] = $match;
-              $this->params[$key] = $match;
+              $params[$key] = $match;
             }
           }
-          // $this->params = $params;
-          // echo '<pre>';
-          // echo htmlspecialchars(print_r($this->getParams(), true));
-          // echo '</pre>';
+          $this->params = $params;
           return true;
         }
       }
@@ -107,11 +101,7 @@
         $controller = $this->toStudlyCase($this->params['controller']);
         $controller = $this->getNamespace() . $controller;
         if (class_exists($controller)) {
-          $controllerObj = new $controller($this->params);
-          // echo '<pre>';
-          // echo htmlspecialchars(print_r($controllerObj->getParams(), true));
-          // echo '</pre>';
-          // $controllerObj->run();
+        $controllerObj = new $controller($this->params);
           $action = $this->toCamelCase($this->params['action']);
           if (is_callable([$controllerObj, $action])) {
             $controllerObj->$action();
@@ -161,7 +151,7 @@
     private function getNamespace() {
       $namespace = 'App\Controllers\\';
       if (array_key_exists('namespace', $this->params)) {
-        $namespace = $this->params['namespace'] . '\\';
+        $namespace .= $this->params['namespace'] . '\\';
       }
       return $namespace;
     }

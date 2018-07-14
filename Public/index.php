@@ -5,7 +5,7 @@
    * PHP Version 7.2.5
    */
 
-   use App\Controllers;
+  use App\Controllers;
 
   /**
    * Autoloader
@@ -18,22 +18,27 @@
   * Routing
   */
   $router = new \Core\Router();
-  // $router->use('home', ['controller' => 'home', 'action' => 'index']);
-  // $router->use('{controller}');
-  // $router->use('home');
-  $router->use('{controller}');
+  $router->use('admin/index', [
+    'namespace' => 'User', 
+    'controller' => 'Admin', 
+    'action' => 'index']
+  );
   $router->use('{controller}/{action}');
   $router->use('{controller}/{action}/{id:\d+}');
-  // Display the routing table
-  // echo '<pre>';
-  // echo htmlspecialchars(print_r($router->getRoutes(), true));
-  // echo '</pre>';
-  // echo '<hr>';
+  // $router->use('{controller}', ['namespace' => 'App\Controllers\User']);
+  // $router->use('{controller}/{action}', ['namespace' => 'App\Controllers\User']);
 
-  
+  // Display the routing table
+  echo '<pre>';
+  echo htmlspecialchars(print_r($router->getRoutes(), true));
+  echo '</pre>';
+  echo '<hr>';
+
+
   /**
    * Dispatcher
    */
   $url = $_SERVER['QUERY_STRING'];
   $router->dispatch($url);
+
 
