@@ -1,0 +1,1 @@
+all the log files will be stored here if the SHOW_ERROR setting in \App\Config.php is set to false
