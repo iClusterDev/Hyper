@@ -24,19 +24,12 @@
     set_exception_handler('Core\Error::exceptionHandler');
     
 
-
-
    /**
     * Routing
     */
     $router = new \Core\Router();
     $router->use('{controller}/{action}');
     $router->use('{controller}/{action}/{id:\d+}');
-    // Display the routing table
-    // echo '<pre>';
-    // echo htmlspecialchars(print_r($router->getRoutes(), true));
-    // echo '</pre>';
-    // echo '<hr>';
 
 
    /**
